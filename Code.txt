@@ -1,0 +1,43 @@
+# Auto detect text files and perform LF normalization
+* text=auto
+import java.io.*;
+import java.util.*;
+
+class Rock_Paper_Scissors_Lizard_Spock_GAME {
+	public static void main (String[] args) {
+	    
+	    Scanner sc=new Scanner(System.in);
+	    
+	    char ch='Y';
+	    
+	    while(ch=='Y')
+	    {
+	        System.out.println("Let's Play Rock(1) Paper(2) Scissors(3) Lizard(4) Spock(5)");
+	        System.out.println("Enter your choice(a number from 1 to 5):");
+	        int user=sc.nextInt();
+	        
+	        if(user<1 || user >5)
+	        {
+	            System.out.println("Invalid Choice, Choose Again!!");
+	        }
+	        else
+	        {
+	            Random rand = new Random();
+                int computer = rand.nextInt(5)+1;
+                
+                if(user==computer)
+                {
+                    System.out.println("Game Drawn!");
+                }
+                else if((user==1 && (computer==3 || computer==4))||(user==2 && (computer==1 || computer==5))||(user==3 && (computer==2 || computer==4))||(user==4 && (computer==2 || computer==5))||(user==5 && (computer==1 || computer==3)))
+	            {
+	                System.out.println("Hurray! User WON! Computer's Choice was:"+computer);
+	            }
+	            else
+	            {
+	                System.out.println("Oops! User Lost! Computer's Choice was:"+computer);
+	            }
+	            System.out.println("Do you wish to Play Again (Y/N)?");
+	            ch=sc.next().charAt(0);
+	        }
+	    }
